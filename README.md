@@ -77,26 +77,27 @@ cd ansible-software-install
 
 3. Excute Playbook
 ```
-ansible-playbook *.yaml
+sudo ansible-playbook *.yaml
 ```
 
-## Code structure
+## 📂 Code Directories
 ```
 .
-├── apt-manage.yaml
-├── chrome-install.yaml
+├── package-management
+│   └── apt-manage.yaml
 ├── README.md
-└── vscode-install.yaml
+├── software-install
+│   ├── chrome-install.yaml
+│   └── vscode-install.yaml
+└── web-server
+    └── nginx-install.yaml
 
-0 directories, 4 files
+3 directories, 5 files
 ```
-
 
 Playbook file permission 
 ```
--rwxr-xr-x  1 USER USER  312 Jul 18 11:03 apt-manage.yaml*
--rwxr-xr-x  1 USER USER  500 Jul 18 10:41 chrome-install.yaml*
--rwxr-xr-x  1 USER USER  531 Jul 18 11:18 vscode-install.yaml*
+-rwxr-xr-x  1 USER USER  312 Jul 18 11:03 *.yaml*
 ```
 
 For Excute playbooks in Linux-machine 
@@ -108,27 +109,10 @@ sudo ansible-playbook *.yaml
 
 ⚠️ NOTE: Make sure to run the playbook with appropriate privileges (e.g., sudo) to perform package management operations.
 
-```[ For update & upgrade pacakges ] apt-manage.yaml```
-- Update apt cache: Updates the local package cache to ensure the latest package information is available.
+1. ```package-management```: This directory contains the apt-manage.yaml playbook, which handles package management tasks specific to the system's package manager (APT in this case). It may include tasks like updating the package cache, upgrading packages, or removing packages.
 
-- Upgrade packages: Upgrades all installed packages to the latest available versions. This ensures your system has the latest security patches and feature updates.
+2. ```software-install```: This directory contains the chrome-install.yaml and vscode-install.yaml playbooks. These playbooks handle the installation and configuration of specific software packages, such as Google Chrome and Visual Studio Code.
 
-- Autoremove unused packages: Removes any packages that are no longer required by the system. This helps free up disk space and keeps the system clean.
-
-
-```[ For install chrome-browser ] chrome-install.yaml```
-- Add Google Chrome repository key: Downloads and adds the Google Chrome repository key to the system's keyring. This key is necessary for package verification.
-
-- Add Google Chrome APT repository: Adds the Google Chrome APT repository to the system's list of software sources. This repository provides access to the Google Chrome packages.
-
-- Install Google Chrome: Uses the apt module to install the google-chrome-stable package. This package contains the latest stable version of Google Chrome.
-
-```[ For install vs-code ] vscode-install.yaml```
-
-- Add Microsoft GPG key: Downloads and adds the Microsoft GPG key to the system's keyring. This key is required to authenticate the Visual Studio Code repository.
-
-- Add VS Code repository: Adds the Visual Studio Code APT repository to the system's list of software sources. This repository provides access to the Visual Studio Code packages.
-
-- Install VS Code: Uses the apt module to install the code package, which contains Visual Studio Code.
+3. ```web-server```: This directory includes the nginx-install.yaml playbook. It focuses on the installation and setup of a web server, specifically Nginx, including tasks like package installation, configuration, and service management.
 
 🎉 Enjoy your automated Linux software deployments! 🍕

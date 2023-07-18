@@ -1,0 +1,27 @@
+---
+- name: Install Nginx and check version
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+      register: nginx_install_status
+
+    - name: Print Nginx version
+      command: nginx -v
+      register: nginx_version_output
+      changed_when: false
+      failed_when: false
+      when: nginx_install_status.changed
+
+    - name: Print Nginx version
+      debug:
+        msg: "{{ nginx_version_output.stdout }}"
+      when: nginx_install_status.changed
+
+    - name: Print Nginx already installed
+      debug:
+        msg: "Nginx is already installed."
+      when: not nginx_install_status.changed
