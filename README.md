@@ -45,7 +45,9 @@ For external machine or server,
 
 ```Replace 13.200.130.21 with your target server IP(s).```
 
+```
 sudo nano /etc/ansible/hosts
+```
 
 ```
 #Ansible-Target-Server
@@ -54,8 +56,10 @@ sudo nano /etc/ansible/hosts
 ``` 
 
 For local machine or system,
-
+```
 sudo nano /etc/ansible/hosts
+```
+
 
 ```
 #Localhost
