@@ -1,0 +1,20 @@
+---
+- name: Install Visual Studio Code
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Add Microsoft GPG key
+      apt_key:
+        url: https://packages.microsoft.com/keys/microsoft.asc
+        state: present
+        validate_certs: no  # Disable SSL certificate validation
+
+    - name: Add VS Code repository
+      apt_repository:
+        repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+        state: present
+
+    - name: Install VS Code
+      apt:
+        name: code
+        state: present

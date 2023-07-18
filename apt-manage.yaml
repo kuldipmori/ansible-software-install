@@ -1,0 +1,17 @@
+---
+- name: Update, Upgrade, and Autoremove
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Upgrade packages
+      apt:
+        upgrade: yes
+        autoremove: no
+
+    - name: Autoremove unused packages
+      apt:
+        autoremove: yes

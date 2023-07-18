@@ -1,0 +1,20 @@
+---
+- name: Install Google Chrome
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Add Google Chrome repository key
+      apt_key:
+        url: https://dl.google.com/linux/linux_signing_key.pub
+        state: present
+
+    - name: Add Google Chrome APT repository
+      apt_repository:
+        repo: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
+        state: present
+
+    - name: Install Google Chrome
+      apt:
+        name: google-chrome-stable
+        state: present
