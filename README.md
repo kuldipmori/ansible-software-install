@@ -80,6 +80,18 @@ cd ansible-software-install
 ansible-playbook *.yaml
 ```
 
+## Code structure
+```
+.
+├── apt-manage.yaml
+├── chrome-install.yaml
+├── README.md
+└── vscode-install.yaml
+
+0 directories, 4 files
+```
+
+
 Playbook file permission 
 ```
 -rwxr-xr-x  1 USER USER  312 Jul 18 11:03 apt-manage.yaml*
@@ -96,7 +108,7 @@ sudo ansible-playbook *.yaml
 
 ⚠️ NOTE: Make sure to run the playbook with appropriate privileges (e.g., sudo) to perform package management operations.
 
-```[ For manage update pacakge ] apt-manage.yaml```
+```[ For update & upgrade pacakges ] apt-manage.yaml```
 - Update apt cache: Updates the local package cache to ensure the latest package information is available.
 
 - Upgrade packages: Upgrades all installed packages to the latest available versions. This ensures your system has the latest security patches and feature updates.
@@ -104,7 +116,7 @@ sudo ansible-playbook *.yaml
 - Autoremove unused packages: Removes any packages that are no longer required by the system. This helps free up disk space and keeps the system clean.
 
 
-```[ For isntall chrome-browser ] chrome-install.yaml```
+```[ For install chrome-browser ] chrome-install.yaml```
 - Add Google Chrome repository key: Downloads and adds the Google Chrome repository key to the system's keyring. This key is necessary for package verification.
 
 - Add Google Chrome APT repository: Adds the Google Chrome APT repository to the system's list of software sources. This repository provides access to the Google Chrome packages.
