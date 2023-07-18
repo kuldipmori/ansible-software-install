@@ -37,7 +37,7 @@ ansible --version
 The output should display the installed Ansible version information, confirming that the installation was successful.
 
 ## 🔧 Setup Ansible-Hosts file
-The /etc/ansible/hosts file is the inventory file used by Ansible to define and organize the hosts (remote servers) that Ansible will manage. It is a text file that lists the hostnames or IP addresses of the remote servers and organizes them into groups.
+The `/etc/ansible/hosts` file is the inventory file used by Ansible to define and organize the hosts (remote servers) that Ansible will manage. It is a text file that lists the hostnames or IP addresses of the remote servers and organizes them into groups.
 
 For external machine or server,
 
@@ -63,6 +63,23 @@ sudo nano /etc/ansible/hosts
 127.0.0.1 ansible_connection=local
 ``` 
 
+## 📂 Code Clone 
+
+1. Code clone on Local Machine.
+```
+git clone https://github.com/anchor-it/ansible-software-install.git
+```
+
+2. Enter in Direcotry.
+```
+cd ansible-software-install
+```
+
+3. Excute Playbook
+```
+ansible-playbook *.yaml
+```
+
 Playbook file permission 
 ```
 -rwxr-xr-x  1 USER USER  312 Jul 18 11:03 apt-manage.yaml*
@@ -72,7 +89,7 @@ Playbook file permission
 
 For Excute playbooks in Linux-machine 
 ```
-sudo ansibple-playbook *.yaml
+sudo ansible-playbook *.yaml
 ```
 
 ## 📋 Playbook Descriptions
@@ -102,4 +119,4 @@ sudo ansibple-playbook *.yaml
 
 - Install VS Code: Uses the apt module to install the code package, which contains Visual Studio Code.
 
-🎉 Enjoy your automated Linux software deployments! 🚀
+🎉 Enjoy your automated Linux software deployments! 🍕
