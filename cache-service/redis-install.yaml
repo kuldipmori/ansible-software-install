@@ -1,0 +1,34 @@
+---
+- name: Install and configure Redis   
+  hosts: localhost                    # Target serve name 
+  server_user: ubuntu                 # Serve user name 
+  become: true                        # Install with root access
+
+  tasks:
+    - name: Update APT cache          
+      apt:
+        update_cache: yes
+
+    - name: Install Redis             
+      apt:
+        name: redis-server
+        state: present
+
+    - name: Configure Redis supervised mode           
+      lineinfile:
+        path: /etc/redis/redis.conf
+        regexp: '^supervised '
+        line: 'supervised systemd'
+        backup: yes
+
+    - name: Restart Redis service         
+      systemd:
+        name: redis
+        state: restarted
+
+    - name: Check Redis service status        
+      systemd:
+        name: redis
+        state: started
+      register: redis_status
+      ignore_errors: yes

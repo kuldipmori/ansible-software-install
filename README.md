@@ -87,6 +87,8 @@ sudo ansible-playbook *.yaml
 ## 📂 Code Directories
 ```
 .
+├── cache-service
+│   └── redis-install.yaml
 ├── package-management
 │   └── apt-manage.yaml
 ├── README.md
@@ -96,7 +98,7 @@ sudo ansible-playbook *.yaml
 └── web-server
     └── nginx-install.yaml
 
-3 directories, 5 files
+4 directories, 6 files
 ```
 
 Playbook file permission 
@@ -118,5 +120,7 @@ sudo ansible-playbook *.yaml
 2. ```software-install```: This directory contains the chrome-install.yaml and vscode-install.yaml playbooks. These playbooks handle the installation and configuration of specific software packages, such as Google Chrome and Visual Studio Code.
 
 3. ```web-server```: This directory includes the nginx-install.yaml playbook. It focuses on the installation and setup of a web server, specifically Nginx, including tasks like package installation, configuration, and service management.
+
+4. ```cache-service```: Automated Redis cache server installation with Ansible. Easily set up Redis server and CLI on target servers using the redis-install.yaml playbook. 
 
 🎉 Enjoy your automated Linux software deployments! 🍕
