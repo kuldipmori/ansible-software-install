@@ -71,7 +71,7 @@ sudo nano /etc/ansible/hosts
 
 1. Code clone on Local Machine.
 ```
-git clone https://github.com/anchor-it/ansible-software-install.git
+git clone git@github.com:kuldipmori/ansible-software-install.git
 ```
 
 2. Enter in Direcotry.
