@@ -1,0 +1,27 @@
+---
+- name: Install Apache2 with latest version
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Check apache2 is installed or not on target
+      command: apache2 -v
+      register: apache_version_output
+      ignore_errors: yes
+
+    - name: apach2 version if installed
+      debug:
+        var: apache_version_output.stdout
+      when: apache_version_output.rc == 0
+
+    - name: install apache2 
+      package:
+        name: apache2
+        state: present
+      when: apache_version_output.rc != 0
+
+    - name: start service apache2 after install 
+      service:
+        name: apache2
+        state: started
+      when: apache_version_output.rc != 0
