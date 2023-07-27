@@ -1,0 +1,25 @@
+---
+- name: Install AnyDesk
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Add AnyDesk GPG key
+      apt_key:
+        url: https://keys.anydesk.com/repos/DEB-GPG-KEY
+        state: present
+
+    - name: Add AnyDesk repository
+      apt_repository:
+        repo: deb http://deb.anydesk.com/ all main
+        state: present
+
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install AnyDesk
+      apt:
+        name: anydesk
+        state: present
+

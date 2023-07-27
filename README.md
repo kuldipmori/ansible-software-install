@@ -93,13 +93,14 @@ sudo ansible-playbook *.yaml
 ├── package-management
 │   └── apt-manage.yaml
 ├── software-install
+│   ├── anydesk-install.yaml
 │   ├── chrome-install.yaml
 │   └── vscode-install.yaml
 └── web-server
     ├── apache2-install.yaml
     └── nginx-install.yaml
 
-4 directories, 7 files
+4 directories, 8 files
 ```
 
 Playbook file permission 
@@ -118,7 +119,7 @@ sudo ansible-playbook *.yaml
 
 1. ```package-management```: This directory contains the apt-manage.yaml playbook, which handles package management tasks specific to the system's package manager (APT in this case). It may include tasks like updating the package cache, upgrading packages, or removing packages.
 
-2. ```software-install```: This directory contains the chrome-install.yaml and vscode-install.yaml playbooks. These playbooks handle the installation and configuration of specific software packages, such as Google Chrome and Visual Studio Code.
+2. ```software-install```: This directory contains the chrome-install.yaml, anydesk-install.yaml and vscode-install.yaml playbooks. These playbooks handle the installation and configuration of specific software packages, such as Google Chrome and Visual Studio Code.
 
 3. ```web-server```: This directory includes the nginx-install.yaml & apache2-install.yaml playbook. It focuses on the installation and setup of a web server, specifically Nginx, including tasks like package installation, configuration, and service management.
 
