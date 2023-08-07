@@ -125,4 +125,5 @@ sudo ansible-playbook *.yaml
 
 4. ```cache-service```: Automated Redis cache server installation with Ansible. Easily set up Redis server and CLI on target servers using the redis-install.yaml playbook. 
 
-🎉 Enjoy your automated Linux software deployments! 🍕
+# About the Author
+This project was created by [Kuldip Mori](https://in.linkedin.com/in/morikuldip37) as an example for [ansible-software-install](https://github.com/kuldipmori/ansible-software-install)
