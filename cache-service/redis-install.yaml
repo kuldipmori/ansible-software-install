@@ -4,7 +4,7 @@
 ---
 - name: Install and configure Redis   
   hosts: localhost                    # Target serve name  
-  server_user: ubuntu                 # Serve user name 
+  remote_user: ubuntu                 # Serve user name 
   become: true                        # Install with root access
 
   tasks:
