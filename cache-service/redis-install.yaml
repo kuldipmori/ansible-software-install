@@ -1,19 +1,25 @@
+#NOTE: 
+# 1) Make changes before run this playbook in hosts, server_user & Allow public access.
+
 ---
 - name: Install and configure Redis   
-  hosts: localhost                    # Target serve name 
+  hosts: localhost                    # Target serve name  
   server_user: ubuntu                 # Serve user name 
   become: true                        # Install with root access
 
   tasks:
+    # Update APT package
     - name: Update APT cache          
       apt:
         update_cache: yes
 
+    # Install Redis
     - name: Install Redis             
       apt:
         name: redis-server
         state: present
 
+    # Change Conf. for supervised
     - name: Configure Redis supervised mode           
       lineinfile:
         path: /etc/redis/redis.conf
@@ -21,11 +27,22 @@
         line: 'supervised systemd'
         backup: yes
 
+    # For All Open public access.
+    # If you don't want to provide the public access to Redis, comment this task.(Allow public access to Redis).
+    - name: Allow public access to Redis
+      lineinfile:
+        path: /etc/redis/redis.conf
+        regexp: '^bind '
+        line: 'bind 0.0.0.0'
+        backup: yes
+
+    # Restart service after changes in /etc/redis/redis.conf
     - name: Restart Redis service         
       systemd:
         name: redis
         state: restarted
 
+    # Check service status
     - name: Check Redis service status        
       systemd:
         name: redis
