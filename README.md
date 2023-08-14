@@ -87,11 +87,13 @@ sudo ansible-playbook *.yaml
 ## 📂 Code Directories
 ```
 .
-├── README.md
 ├── cache-service
 │   └── redis-install.yaml
+├── database-install
+│   └── mysql-install.yaml
 ├── package-management
 │   └── apt-manage.yaml
+├── README.md
 ├── software-install
 │   ├── anydesk-install.yaml
 │   ├── chrome-install.yaml
@@ -100,12 +102,12 @@ sudo ansible-playbook *.yaml
     ├── apache2-install.yaml
     └── nginx-install.yaml
 
-4 directories, 8 files
+5 directories, 9 files
 ```
 
 Playbook file permission 
 ```
--rwxr-xr-x  1 USER USER  312 Jul 18 11:03 *.yaml*
+-rwxr-xr-x  1 USER USER  312 Jul 18 11:03 *.yaml
 ```
 
 For Excute playbooks in Linux-machine 
@@ -124,6 +126,8 @@ sudo ansible-playbook *.yaml
 3. ```web-server```: This directory includes the nginx-install.yaml & apache2-install.yaml playbook. It focuses on the installation and setup of a web server, specifically Nginx, including tasks like package installation, configuration, and service management.
 
 4. ```cache-service```: Automated Redis cache server installation with Ansible. Easily set up Redis server and CLI on target servers using the redis-install.yaml playbook. 
+
+5. ```database-install```: Automated database installation using Ansible. This playbook facilitates the setup of a database environment and the creation of a root user with a password. 
 
 # About the Author
 This project was created by [Kuldip Mori](https://in.linkedin.com/in/morikuldip37) as an example for [ansible-software-install](https://github.com/kuldipmori/ansible-software-install)
