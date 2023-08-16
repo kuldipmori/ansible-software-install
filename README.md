@@ -71,7 +71,7 @@ sudo nano /etc/ansible/hosts
 
 1. Code clone on Local Machine.
 ```
-git clone git@github.com:kuldipmori/ansible-software-install.git
+git clone https://github.com/kuldipmori/ansible-software-install.git
 ```
 
 2. Enter in Direcotry.
@@ -90,7 +90,8 @@ sudo ansible-playbook *.yaml
 ├── cache-service
 │   └── redis-install.yaml
 ├── database-install
-│   └── mysql-install.yaml
+│   ├── mysql-install.yaml
+│   └── psql-install.yaml
 ├── package-management
 │   └── apt-manage.yaml
 ├── README.md
@@ -102,7 +103,7 @@ sudo ansible-playbook *.yaml
     ├── apache2-install.yaml
     └── nginx-install.yaml
 
-5 directories, 9 files
+5 directories, 10 files
 ```
 
 Playbook file permission 
