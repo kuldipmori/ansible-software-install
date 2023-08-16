@@ -1,0 +1,40 @@
+---
+- name: Install psql & root create user.
+  hosts: test   # Need to Replace with YOur target server
+  become: yes   # This enables privilege escalation to root
+  tasks:
+
+    # Update all packages
+    - name: Update apt cache
+      ansible.builtin.apt:
+        update_cache: yes
+        state: latest
+      become: yes
+
+    # Install Required packages
+    - name: Install packages
+      ansible.builtin.apt:
+        name:
+          - postgresql
+          - postgresql-contrib
+          - python3-psycopg2
+          - python3-pip
+          - python3-dev
+          - libpq-dev
+        state: present
+
+    # For start service
+    - name: Start and enable service
+      ansible.builtin.service:
+        name: postgresql
+        state: started
+        enabled: true
+
+    # For setup password
+    - name: Set PostgreSQL superuser password
+      become: yes
+      shell: |
+        sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD '{{ root_password }}';"
+      vars:
+        root_password: admin@123    # Need to Replace with Your Password.
+      register: psql_output
