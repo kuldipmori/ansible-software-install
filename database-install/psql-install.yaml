@@ -5,7 +5,7 @@
   tasks:
 
     # Update all packages
-    - name: Update apt cache
+    - name: Update apt-cache
       ansible.builtin.apt:
         update_cache: yes
         state: latest
@@ -37,4 +37,3 @@
         sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD '{{ root_password }}';"
       vars:
         root_password: admin@123    # Need to Replace with Your Password.
-      register: psql_output
